@@ -1,0 +1,97 @@
+:root {
+    --html-bg-color: white;
+    --bg-dark1-color:#535353;
+    --bg-dark2-color:#646464;
+    --bg-dark3-color: #7D7D7D;
+    --hightlight-color: #FF9F0B;
+    --btn-text-color: white;
+}
+
+html {
+    background-color: var(--html-bg-color);
+}
+
+.calculator-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    height: 460px;
+
+    background-color: var(--bg-dark1-color);
+    outline: solid 1px white;
+    border-radius: 10px;
+}
+
+.display-container {
+    position: relative;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 90%;
+    height: 75px;
+
+    text-align: right;
+}
+
+[class^="btn"] {
+    width: 75px;
+    height: 75px;
+
+    color: var(--btn-text-color);
+    font-size: large;
+    font-weight: 700;
+
+    border: solid var(--bg-dark1-color) 1px;
+    outline: none;
+}
+
+.btn-grid {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+    border-radius: 0 0 10px 10px;
+}
+
+.btn-number {
+    background-color: var(--bg-dark3-color);
+}
+
+.btn-operator, .btn-equal {
+    background-color: var(--hightlight-color);
+}
+
+.btn-action {
+    background-color: var(--bg-dark2-color);
+}
+
+.btn-number.zero-btn {
+    width: auto;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#theme-btn {
+    background-color: var(--hightlight-color);
+    border: none;
+    border-radius: 5px;
+}
+
+#theme-btn > #theme-icon {
+    width: 50px;
+    height: 50px;
+}
