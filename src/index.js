@@ -5,6 +5,18 @@ import themeIcon from './img/night-mode.png';
 const themeButtonIcon = document.getElementById('theme-icon');
 themeButtonIcon.src = themeIcon;
 
+const themeButton = document.getElementById('theme-btn');
+
+themeButton.addEventListener('click', () => {
+  const htmlElement = document.documentElement;
+
+  if (htmlElement.getAttribute('data-theme') === 'light') {
+    htmlElement.setAttribute('data-theme', 'dark');
+  } else {
+    htmlElement.setAttribute('data-theme', 'light');
+  }
+});
+
 const calculatorContainer = document.getElementById('calculator-container');
 calculatorContainer.classList.add('calculator-container');
 
