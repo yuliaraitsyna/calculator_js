@@ -1,6 +1,7 @@
 import './style.css';
 import { buttons } from './model/buttons';
 import themeIcon from './img/night-mode.png';
+import { Theme } from './model/theme';
 
 const themeButtonIcon = document.getElementById('theme-icon');
 themeButtonIcon.src = themeIcon;
@@ -10,10 +11,10 @@ const themeButton = document.getElementById('theme-btn');
 themeButton.addEventListener('click', () => {
   const htmlElement = document.documentElement;
 
-  if (htmlElement.getAttribute('data-theme') === 'light') {
-    htmlElement.setAttribute('data-theme', 'dark');
+  if (htmlElement.getAttribute('data-theme') === Theme.LIGHT) {
+    htmlElement.setAttribute('data-theme', Theme.DARK);
   } else {
-    htmlElement.setAttribute('data-theme', 'light');
+    htmlElement.setAttribute('data-theme', Theme.LIGHT);
   }
 });
 
