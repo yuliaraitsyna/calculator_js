@@ -16,6 +16,6 @@ export const buttons = [
   { label: '9', value: '9', type: 'number' },
   { label: '+', value: '+', type: 'operator' },
   { label: '0', value: '0', type: 'number' },
-  { label: ',', value: ',', type: 'number' },
+  { label: '.', value: '.', type: 'number' },
   { label: '=', value: '=', type: 'equal' },
 ];
