@@ -57,14 +57,17 @@ const handleButtonClick = (btn) => {
     previousValue = currentValue;
     currentValue = '';
     isFloat = false;
-
     updateDisplay(previousValue);
   } else if (btn.value === '+/-') {
-    currentValue = calculate(currentValue, '+/-', currentValue);
-    updateDisplay(currentValue);
+    if (currentValue && !isNaN(currentValue)) {
+      currentValue = calculate(currentValue, '+/-', currentValue);
+      updateDisplay(currentValue);
+    }
   } else if (btn.value === '%') {
-    currentValue = calculate(currentValue, '%', currentValue);
-    updateDisplay(currentValue);
+    if (currentValue && !isNaN(currentValue)) {
+      currentValue = calculate(currentValue, '%', currentValue);
+      updateDisplay(currentValue);
+    }
   } else if (btn.value === '=') {
     if (operation && previousValue) {
       currentValue = calculate(previousValue, operation, currentValue);
