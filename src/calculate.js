@@ -1,24 +1,23 @@
 export const calculate = (value1, operator, value2) => {
   const num1 = parseFloat(value1);
   const num2 = parseFloat(value2);
+  const ROUNDING = 1e12;
 
-  if (isNaN(num1) || isNaN(num2)) {
+  if (isNaN(num1) || (operator !== '+/-' && isNaN(num2))) {
     return 'Invalid input';
   }
 
-  const roundResult = (result) => (parseInt(result * 1e12) / 1e12).toString();
-
   const isValid = (result) =>
-    result < Number.MAX_VALUE && result > -Number.MAX_VALUE;
+    result < Number.MAX_SAFE_INTEGER && result > Number.MIN_SAFE_INTEGER;
 
   let result;
 
   switch (operator) {
     case '+':
-      result = num1 + num2;
+      result = (num1 * ROUNDING + num2 * ROUNDING) / ROUNDING;
       break;
     case '-':
-      result = num1 - num2;
+      result = (num1 * ROUNDING - num2 * ROUNDING) / ROUNDING;
       break;
     case '*':
       result = num1 * num2;
@@ -37,5 +36,15 @@ export const calculate = (value1, operator, value2) => {
       return 'Invalid operator';
   }
 
-  return isValid(result) ? roundResult(result) : 'Out of bounds';
+  if (!isValid(result)) {
+    return 'Out of bounds';
+  }
+
+  let formattedResult = result.toString();
+
+  if (formattedResult.includes('e')) {
+    formattedResult = result.toFixed(12).replace(/\.?0+$/, '');
+  }
+
+  return formattedResult;
 };

@@ -52,6 +52,7 @@ html {
     outline: none;
 
     text-align: right;
+    font-size: medium;
     color: var(--btn-text-color);
 }
 
