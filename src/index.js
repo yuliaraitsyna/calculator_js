@@ -2,7 +2,7 @@ import './style.css';
 import { buttons } from './model/buttons';
 import themeIcon from './img/night-mode.png';
 import { Theme } from './model/theme';
-import { calculate } from './calculate';
+import { calculate } from './calculate/calculate';
 
 const themeButtonIcon = document.getElementById('theme-icon');
 themeButtonIcon.src = themeIcon;
